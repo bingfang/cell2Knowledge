@@ -406,23 +406,25 @@ with open("../data/HLCA_CellRef_matching_ver3_import.txt", "r") as f:
             else:
                 print("This cellType_cellSet is already in db:", cellSet_cellType_cellref_edge_key)           
             
-            
-            
-            
+        
 
-
-"""
-
-            
-            if biomarker_cellSet_edge_key not in biomarker_cellSet_list:
-                biomarker_cellSet_list.append(biomarker_cellSet_edge_key)
-                Biomarker_combination_key = Biomarker_combination_dic[Biomarker_combination_name]
-                Cell_set_key = Cell_set_dic[Cell_set_name]
-                d8 = {"_key": biomarker_cellSet_edge_key, "_from":f"Biomarker_combination/{Biomarker_combination_key}","_to":f"Cell_set/{Cell_set_key}" ,"name": "IS_MARKER_FOR"}
-                biomarker_cellSet.insert(d8)
+            # biomarker_cellSet edge data
+            if biomarker_cellSet_hlca_edge_key not in biomarker_cellSet_list:
+                biomarker_cellSet_list.append(biomarker_cellSet_hlca_edge_key)
+                Biomarker_combination_key = Biomarker_combination_dic[Biomarker_combination_hlca_name]
+                Cell_set_key = Cell_set_dic[Cell_set_hlca_name]
+                d10 = {"_key": biomarker_cellSet_hlca_edge_key, "_from":f"Biomarker_combination/{Biomarker_combination_key}","_to":f"Cell_set/{Cell_set_key}" ,"name": "IS_MARKER_FOR"}
+                biomarker_cellSet.insert(d10)
             else:
-                print("This edge is already in db:", biomarker_cellSet_edge_key)
-            
+                print("This edge is already in db:", biomarker_cellSet_hlca_edge_key)
+            if biomarker_cellSet_cellref_edge_key not in biomarker_cellSet_list:
+                biomarker_cellSet_list.append(biomarker_cellSet_cellref_edge_key)
+                Biomarker_combination_key = Biomarker_combination_dic[Biomarker_combination_cellref_name]               
+                Cell_set_key = Cell_set_dic[Cell_set_cellref_name]
+                d11 = {"_key": biomarker_cellSet_cellref_edge_key, "_from":f"Biomarker_combination/{Biomarker_combination_key}","_to":f"Cell_set/{Cell_set_key}" ,"name": "IS_MARKER_FOR"}
+                biomarker_cellSet.insert(d11)
+            else:
+                print("This edge is already in db:", biomarker_cellSet_hlca_edge_key)
 
             
             
@@ -430,7 +432,7 @@ with open("../data/HLCA_CellRef_matching_ver3_import.txt", "r") as f:
                 
 
   
- """ 
+
  
 
 
